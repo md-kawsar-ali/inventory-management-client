@@ -46,6 +46,7 @@ code {
     letter-spacing: 0.75px;
     text-align: center;
     display: inline-block;
+    border: none;
 }
 
 section {

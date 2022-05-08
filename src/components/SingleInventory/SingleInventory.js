@@ -25,7 +25,7 @@ const SingleInventory = (props) => {
                     </ListGroupItem>
                     <ListGroupItem className="d-flex justify-content-between">
                         <span>Dealer: {dealer}</span>
-                        <span>Quantity: {quantity}</span>
+                        <span>{quantity > 0 ? `Quantity: ${quantity}` : 'Out of Stock'}</span>
                     </ListGroupItem>
                 </ListGroup>
                 <Card.Body>
