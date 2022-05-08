@@ -1,0 +1,13 @@
+.bg-light {
+    background-color: #ffffff !important;
+}
+
+.navbar-nav {
+    column-gap: 15px;
+    padding: 10px 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(33, 33, 33, 0.85);
+    font-weight: 500;
+}
