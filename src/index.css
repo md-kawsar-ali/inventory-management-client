@@ -44,5 +44,34 @@ code {
     padding: 10px 28px;
     border-radius: 5px;
     letter-spacing: 0.75px;
+    text-align: center;
     display: inline-block;
+}
+
+section {
+    padding: 120px 0px;
+}
+
+.title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.title span {
+    color: var(--red);
+}
+
+.list-group-flush > .list-group-item {
+    color: #555555;
+    border-width: 0 0 1px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.card .card-title {
+    color: var(--red);
 }
