@@ -8,6 +8,9 @@ import { Toaster } from 'react-hot-toast';
 import Manage from './components/Pages/Manage/Manage';
 import Edit from './components/Pages/Edit/Edit';
 import Add from './components/Pages/Add/Add';
+import Registration from './components/Pages/Registration/Registration';
+import Login from './components/Pages/Login/Login';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -16,10 +19,28 @@ function App() {
       <Toaster />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/car/:id" element={<CarDetails />} />
-        <Route path="/manage" element={<Manage />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/add" element={<Add />} />
+        <Route path="/car/:id" element={
+          <RequireAuth>
+            <CarDetails />
+          </RequireAuth>
+        } />
+        <Route path="/manage" element={
+          <RequireAuth>
+            <Manage />
+          </RequireAuth>
+        } />
+        <Route path="/edit/:id" element={
+          <RequireAuth>
+            <Edit />
+          </RequireAuth>
+        } />
+        <Route path="/add" element={
+          <RequireAuth>
+            <Add />
+          </RequireAuth>
+        } />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>

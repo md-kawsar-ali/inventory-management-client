@@ -8,6 +8,7 @@ header {
 
 .navbar-nav {
     column-gap: 15px;
+    align-items: center;
     padding: 10px 0;
 }
 
