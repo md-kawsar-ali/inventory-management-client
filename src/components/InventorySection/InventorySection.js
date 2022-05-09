@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import SingleInventory from '../SingleInventory/SingleInventory';
 import './InventorySection.css';
 
@@ -20,6 +21,10 @@ const InventorySection = () => {
                     {
                         featureCar?.map(car => <SingleInventory key={car._id} car={car} col="col-lg-4 col-md-6" />)
                     }
+                </div>
+
+                <div className="text-center mt-5">
+                    <Link className='theme-btn' to="/manage">View All Cars</Link>
                 </div>
             </div>
         </section>
