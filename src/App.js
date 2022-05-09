@@ -5,6 +5,7 @@ import Home from './components/Pages/Home/Home';
 import Footer from './components/Footer/Footer';
 import CarDetails from './components/Pages/CarDetails/CarDetails';
 import { Toaster } from 'react-hot-toast';
+import Manage from './components/Pages/Manage/Manage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/car/:id" element={<CarDetails />} />
+        <Route path="/manage" element={<Manage />} />
       </Routes>
       <Footer />
     </>
