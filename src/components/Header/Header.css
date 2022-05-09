@@ -1,3 +1,7 @@
+header {
+    border-bottom: 1px solid #eeeeee;
+}
+
 .bg-light {
     background-color: #ffffff !important;
 }

@@ -3,14 +3,23 @@ import { Table } from 'react-bootstrap';
 import './AllCars.css';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import Loader from './../Loader/Loader';
 
 const AllCars = () => {
     const [cars, setCars] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch('https://sheltered-wildwood-76810.herokuapp.com/cars')
             .then(res => res.json())
-            .then(data => setCars(data))
-            .catch(err => console.error(err))
+            .then(data => {
+                setCars(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            })
     }, []);
 
     // Handle Delete
@@ -30,9 +39,18 @@ const AllCars = () => {
         }
     }
 
+    if (loading) {
+        return <Loader />;
+    }
+
     return (
         <section className='all-cars'>
             <div className="container">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                    <h2 className='mb-0 lh-1'>All Inventories</h2>
+                    <Link className='theme-btn bg-success text-white mb-2' to='/add'>Add New</Link>
+                </div>
+
                 <Table bordered hover>
                     <thead>
                         <tr>

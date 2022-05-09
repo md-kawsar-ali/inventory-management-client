@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FloatingLabel } from 'react-bootstrap';
 import SubHeader from './../../SubHeader/SubHeader';
 import Form from 'react-bootstrap/Form';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import Loader from './../../Loader/Loader';
 
-const Edit = () => {
-    const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+const Add = () => {
     const [model, setModel] = useState('');
     const [img, setImg] = useState('');
     const [price, setPrice] = useState('');
@@ -21,29 +18,6 @@ const Edit = () => {
     const [quantity, setQuantity] = useState('');
     const [dealer, setDealer] = useState('');
     const navigate = useNavigate();
-
-    useEffect(() => {
-        fetch(`https://sheltered-wildwood-76810.herokuapp.com/cars/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setModel(data.model);
-                setImg(data.img);
-                setPrice(data.price);
-                setYear(data.year);
-                setEngine(data.engine);
-                setBody(data.body);
-                setTransmission(data.transmission);
-                setColor(data.color);
-                setDoors(data.doors);
-                setQuantity(data.quantity);
-                setDealer(data.dealer);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.dir(err);
-                setLoading(false);
-            })
-    }, [id]);
 
     // Handle Model
     const handleModel = (e) => {
@@ -101,7 +75,7 @@ const Edit = () => {
     }
 
     // Handle Update
-    const handleUpdate = (e) => {
+    const handleAdd = (e) => {
         e.preventDefault();
 
         if (model && img && price && year && engine && body && transmission && color && doors && quantity && dealer) {
@@ -109,8 +83,8 @@ const Edit = () => {
                 model, img, price, year, engine, body, transmission, color, doors, quantity, dealer
             }
 
-            fetch(`https://sheltered-wildwood-76810.herokuapp.com/cars/${id}`, {
-                method: 'PUT',
+            fetch(`https://sheltered-wildwood-76810.herokuapp.com/add`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -118,28 +92,24 @@ const Edit = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast.success('Car Successfully Updated!', { duration: 5000 });
+                    toast.success('Car Successfully Added!', { duration: 5000 });
                     setTimeout(() => {
-                        navigate(`/car/${id}`);
+                        navigate(`/car/${data.insertedId}`);
                     }, 2000);
                 })
                 .catch(err => toast.error('Something Went Wrong!'))
         }
     }
 
-    if (loading) {
-        return <Loader />;
-    }
-
     return (
         <main>
-            <SubHeader title="Edit Car Detail" />
+            <SubHeader title="Add New Car" />
 
             <section>
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
-                            <form onSubmit={handleUpdate} className='row g-3'>
+                            <form onSubmit={handleAdd} className='row g-3'>
                                 <div className="col-lg-4">
                                     <FloatingLabel
                                         controlId="floatingInput"
@@ -240,7 +210,7 @@ const Edit = () => {
                                 </div>
 
                                 <div className="col-lg-4">
-                                    <button type="submit" className="theme-btn w-100 h-100">Make Changes</button>
+                                    <button type="submit" className="theme-btn w-100 h-100">Add New Car</button>
                                 </div>
 
                             </form>
@@ -252,4 +222,4 @@ const Edit = () => {
     );
 };
 
-export default Edit;
+export default Add;

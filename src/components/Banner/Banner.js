@@ -1,6 +1,7 @@
 import React from 'react';
 import './Banner.css';
 import bannerBg from './../../img/banner-1.jpg';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -10,7 +11,7 @@ const Banner = () => {
                     <div className="col-lg-6">
                         <h1><span>No #1</span> Car Supplier <br />in the World!</h1>
                         <p>Motodeal is the number one car supplier in the entire world.<br /> We have a huge collection of most expensive cars.</p>
-                        <a href="/" className="theme-btn">Learn More</a>
+                        <Link to="/manage" className="theme-btn">Manage Inventory</Link>
                     </div>
                 </div>
             </div>

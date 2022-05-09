@@ -5,16 +5,24 @@ import SubHeader from './../../SubHeader/SubHeader';
 import { ListGroup } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
+import Loader from './../../Loader/Loader';
 
 const CarDetails = () => {
     const { id } = useParams();
     const [car, setCar] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://sheltered-wildwood-76810.herokuapp.com/cars/${id}`)
             .then(res => res.json())
-            .then(data => setCar(data))
-            .catch(err => console.dir(err))
+            .then(data => {
+                setCar(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.dir(err);
+                setLoading(false);
+            })
     }, [id]);
 
     // Handle Delivery
@@ -91,6 +99,10 @@ const CarDetails = () => {
                 duration: 3000
             })
         }
+    }
+
+    if (loading) {
+        return <Loader />;
     }
 
     return (

@@ -2,15 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SingleInventory from '../SingleInventory/SingleInventory';
 import './InventorySection.css';
+import Loader from './../Loader/Loader';
 
 const InventorySection = () => {
     const [featureCar, setFeatureCar] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetch('https://sheltered-wildwood-76810.herokuapp.com/cars?page=0&size=6')
             .then(res => res.json())
-            .then(data => setFeatureCar(data))
-            .catch(err => console.error(err))
+            .then(data => {
+                setFeatureCar(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            })
     }, []);
+
+    if (loading) {
+        return <Loader />;
+    }
 
     return (
         <section className='inventory-section'>
