@@ -64,7 +64,7 @@ const AllCars = () => {
                                 <td>{car.dealer}</td>
                                 <td style={{ width: '190px' }}>
                                     <button onClick={() => handleDelete(car._id)} className='theme-btn py-1 px-3 me-2'>Delete</button>
-                                    <button className='theme-btn py-1 px-3 bg-success'>Edit</button>
+                                    <Link to={`/edit/${car._id}`} className='theme-btn text-white py-1 px-3 bg-success'>Edit</Link>
                                 </td>
                             </tr>)
                         }

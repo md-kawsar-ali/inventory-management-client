@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer';
 import CarDetails from './components/Pages/CarDetails/CarDetails';
 import { Toaster } from 'react-hot-toast';
 import Manage from './components/Pages/Manage/Manage';
+import Edit from './components/Pages/Edit/Edit';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/car/:id" element={<CarDetails />} />
         <Route path="/manage" element={<Manage />} />
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
       <Footer />
     </>
