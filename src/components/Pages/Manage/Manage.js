@@ -6,7 +6,7 @@ const Manage = () => {
     return (
         <main>
             <SubHeader title="Manage All Cars" />
-            <AllCars />
+            <AllCars title="All Inventories" />
         </main>
     );
 };

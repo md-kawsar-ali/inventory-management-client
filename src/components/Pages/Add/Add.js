@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FloatingLabel } from 'react-bootstrap';
 import SubHeader from './../../SubHeader/SubHeader';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import Loader from '../../Loader/Loader';
 
 const Add = () => {
+    const [user, loading] = useAuthState(auth);
     const [model, setModel] = useState('');
     const [img, setImg] = useState('');
     const [price, setPrice] = useState('');
@@ -18,6 +22,13 @@ const Add = () => {
     const [quantity, setQuantity] = useState('');
     const [dealer, setDealer] = useState('');
     const navigate = useNavigate();
+
+    // User Id
+    const [uid, setUid] = useState();
+
+    useEffect(() => {
+        setUid(user.uid);
+    }, [user]);
 
     // Handle Model
     const handleModel = (e) => {
@@ -80,7 +91,7 @@ const Add = () => {
 
         if (model && img && price && year && engine && body && transmission && color && doors && quantity && dealer) {
             const newCar = {
-                model, img, price, year, engine, body, transmission, color, doors, quantity, dealer
+                model, img, price, year, engine, body, transmission, color, doors, quantity, dealer, uid
             }
 
             fetch(`https://sheltered-wildwood-76810.herokuapp.com/add`, {
@@ -99,6 +110,10 @@ const Add = () => {
                 })
                 .catch(err => toast.error('Something Went Wrong!'))
         }
+    }
+
+    if (loading) {
+        return <Loader />;
     }
 
     return (

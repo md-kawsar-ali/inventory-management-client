@@ -11,7 +11,7 @@ const SubHeader = (props) => {
     }
 
     return (
-        <section style={headerStyle}>
+        <section className="sub-header" style={headerStyle}>
             <div style={{ background: 'rgba(0, 0, 0, 0.7)', padding: '140px 0px' }}>
                 <div className="container">
                     <h1 className='text-white mb-0 text-center text-uppercase'>{props.title}</h1>

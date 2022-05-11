@@ -19,6 +19,7 @@ const Login = () => {
             toast.success('You\'re Logged In!', {
                 duration: 3000
             })
+
             navigate(from, { replace: true });
         } else if (error || googleError) {
             if (error.message.includes('not-found')) {
