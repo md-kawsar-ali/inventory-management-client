@@ -30,9 +30,9 @@ const InventorySection = () => {
             <div className="container">
                 <h2 className='title text-center'><span>Featured</span> Inventory</h2>
 
-                <div className="row g-5">
+                <div className="row justify-content-center g-5">
                     {
-                        featureCar?.map(car => <SingleInventory key={car._id} car={car} col="col-lg-4 col-md-6" />)
+                        featureCar?.map(car => <SingleInventory key={car._id} car={car} col="col-lg-4 col-md-6 col-11" />)
                     }
                 </div>
 

@@ -9,6 +9,7 @@ body {
         'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 h1,
@@ -75,4 +76,165 @@ section {
 
 .card .card-title {
     color: var(--red);
+}
+
+.pagination {
+    display: block;
+}
+.pagination li.page-item {
+    display: inline-block;
+    margin: 5px;
+}
+
+@media screen and (max-width: 1199.98px) {
+    section {
+        padding: 100px 0;
+    }
+    .title {
+        font-size: 2.4rem;
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+    .sub-header > div {
+        padding: 100px 0 !important;
+    }
+    .all-cars th:nth-child(4),
+    .all-cars td:nth-child(4),
+    .all-cars th:nth-child(5),
+    .all-cars td:nth-child(5),
+    .all-cars th:nth-child(6),
+    .all-cars td:nth-child(6) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    section {
+        padding: 100px 0;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .sub-header > div {
+        padding: 70px 0 !important;
+    }
+    .theme-btn,
+    .theme-btn:hover {
+        font-size: 14px;
+    }
+    .all-cars .table {
+        display: block;
+    }
+    .table > thead {
+        display: none;
+    }
+    .table > :not(:first-child) {
+        border-top: none !important;
+    }
+    .table-bordered > :not(caption) > * > * {
+        border: none;
+    }
+    .all-cars th:nth-child(1),
+    .all-cars td:nth-child(1),
+    .all-cars th:nth-child(7),
+    .all-cars td:nth-child(7),
+    .all-cars th:nth-child(8),
+    .all-cars td:nth-child(8) {
+        display: none;
+    }
+    .all-cars .table tbody {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+    .all-cars .table tbody tr {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: #fafafa;
+        border: none;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .all-cars .table tbody tr td {
+        padding: 0;
+        text-align: center;
+        display: block;
+        height: auto !important;
+        width: 100% !important;
+    }
+    .all-cars .table tbody tr img {
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .all-cars th:nth-child(1),
+    .all-cars td:nth-child(1),
+    .all-cars th:nth-child(4),
+    .all-cars td:nth-child(4),
+    .all-cars th:nth-child(5),
+    .all-cars td:nth-child(5),
+    .all-cars th:nth-child(6),
+    .all-cars td:nth-child(6),
+    .all-cars th:nth-child(7),
+    .all-cars td:nth-child(7),
+    .all-cars th:nth-child(8),
+    .all-cars td:nth-child(8) {
+        display: none !important;
+    }
+    .all-cars table a,
+    .all-cars table a:hover {
+        color: #444444;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    .all-cars table .theme-btn {
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    .table-hover > tbody > tr:hover > * {
+        --bs-table-accent-bg: none;
+        color: var(--bs-table-hover-color);
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    section {
+        padding: 70px 0;
+    }
+    .title,
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+    p {
+        font-size: 15px;
+    }
+    .theme-btn,
+    .theme-btn:hover {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+    .card .card-title {
+        font-size: 1rem;
+    }
+    .card span {
+        font-size: 15px;
+    }
+    .all-cars .table tbody {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        width: 100%;
+    }
+    .all-cars .table tbody tr {
+        padding: 25px;
+    }
 }

@@ -10,7 +10,7 @@ const SingleInventory = (props) => {
         <div className={col}>
             <Card>
                 <Card.Img variant="top" className="img-fluid" src={img} />
-                <Card.Body className="d-flex justify-content-between gx-4">
+                <Card.Body className="d-flex justify-content-between gx-lg-4 gx-2">
                     <Card.Title className="fw-bold mb-0">{model}</Card.Title>
                     <Card.Title className="fw-bold mb-0">${price}</Card.Title>
                 </Card.Body>

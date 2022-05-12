@@ -6,8 +6,8 @@ const About = () => {
     return (
         <section style={{ background: '#F5F4F4', padding: '80px 0' }}>
             <div className="container">
-                <div className="row justify-content-center align-items-center g-5">
-                    <div className="col-lg-6 px-5">
+                <div className="row justify-content-center align-items-center gx-5">
+                    <div className="col-lg-6 col-10 px-5">
                         <img src={carImg} className="img-fluid" alt="" />
                     </div>
 

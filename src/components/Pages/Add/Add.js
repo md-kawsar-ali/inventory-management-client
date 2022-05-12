@@ -119,13 +119,12 @@ const Add = () => {
     return (
         <main>
             <SubHeader title="Add New Car" />
-
             <section>
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-lg-8">
+                        <div className="col-lg-8 col-md-10 col-11">
                             <form onSubmit={handleAdd} className='row g-3'>
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Model"
@@ -134,7 +133,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Image Link"
@@ -143,7 +142,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Price"
@@ -152,7 +151,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Year"
@@ -161,7 +160,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Engine"
@@ -170,7 +169,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Body"
@@ -179,7 +178,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Transmission"
@@ -188,7 +187,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Color"
@@ -197,7 +196,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Doors"
@@ -206,7 +205,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Quantity"
@@ -215,7 +214,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <FloatingLabel
                                         controlId="floatingInput"
                                         label="Dealer"
@@ -224,7 +223,7 @@ const Add = () => {
                                     </FloatingLabel>
                                 </div>
 
-                                <div className="col-lg-4">
+                                <div className="col-lg-4 col-md-6">
                                     <button type="submit" className="theme-btn w-100 h-100">Add New Car</button>
                                 </div>
 

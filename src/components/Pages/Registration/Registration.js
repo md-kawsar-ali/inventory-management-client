@@ -86,7 +86,7 @@ const Registration = () => {
         <section>
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 col-md-7 col-11">
                         <h2 className="text-center mb-4">Create an Account</h2>
                         <form onSubmit={handleRegistration}>
                             <FloatingLabel
