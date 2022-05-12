@@ -1,3 +1,36 @@
+# Inventory Management Web Application
+
+It's an inventory management React and Node Js application. [Live Preview](https://inventory-management-reactjs.web.app)
+
+## Technology Used
+
+-   React JS
+-   Node JS
+-   Express JS
+-   Mongodb
+-   Firebase
+-   React Router
+-   DotEnv
+-   React Bootstrap
+-   JavaScript Web Token (JWT)
+-   React Hot Toast
+
+## Key Features
+
+-   Add Inventory
+-   Manage Inventory
+-   Update Inventory
+-   Delete Inventory
+-   Deliver Inventory
+-   Update Quantity
+-   Login and Registration
+-   Protected Pages (Private Routes)
+
+## Note
+
+Please, add your own Secret / Private Keys in your .env.local and .env file.
+(Firebase Auth, JWT and Mongodb requires Private and Secret Keys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
