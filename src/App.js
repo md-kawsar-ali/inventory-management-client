@@ -14,6 +14,7 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import MyItems from './components/Pages/MyItems/MyItems';
 import NotFound from './components/Pages/NotFound/NotFound';
 import Blog from './components/Pages/Blog/Blog';
+import LatestInventory from './components/Pages/LatestInventory/LatestInventory';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/latest" element={<LatestInventory />} />
         <Route path="/car/:id" element={
           <RequireAuth>
             <CarDetails />

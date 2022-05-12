@@ -34,6 +34,7 @@ const Header = () => {
                                 <Nav className="ms-auto">
                                     <Nav.Link as={Link} to='/'>Home</Nav.Link>
                                     <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
+                                    <Nav.Link as={Link} to='/latest'>Latest Cars</Nav.Link>
                                     <button onClick={() => navigate('/login')} className='theme-btn ms-2'>Login</button >
                                 </Nav>
                         }
