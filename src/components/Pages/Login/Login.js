@@ -18,9 +18,24 @@ const Login = () => {
         if (user || googleUser) {
             toast.success('You\'re Logged In!', {
                 duration: 3000
-            })
+            });
 
-            navigate(from, { replace: true });
+            const uid = user?.user?.uid || googleUser?.user?.uid;
+
+            // Get Access Token
+            fetch('https://sheltered-wildwood-76810.herokuapp.com/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ uid: uid })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate(from, { replace: true });
+                })
+                .catch(err => console.error(err))
         } else if (error || googleError) {
             if (error.message.includes('not-found')) {
                 toast.error('User Not Found! Create an Account!', {

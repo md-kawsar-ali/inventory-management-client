@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Pagination, Table } from 'react-bootstrap';
 import './AllCars.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import Loader from './../Loader/Loader';
 
@@ -11,6 +11,7 @@ const AllCars = (props) => {
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     // Get Cars
     useEffect(() => {
@@ -22,17 +23,26 @@ const AllCars = (props) => {
             url = `https://sheltered-wildwood-76810.herokuapp.com/cars?page=${page}&size=10`;
         }
 
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setCars(data);
-                setLoading(false);
+        if (url) {
+            fetch(url, {
+                methods: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
-            .catch(err => {
-                console.error(err);
-                setLoading(false);
-            })
-    }, [page, uid]);
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
+                        navigate('/login');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    setCars(data);
+                    setLoading(false);
+                })
+        }
+    }, [page, uid, navigate]);
 
     // Count Cars and Pages
     useEffect(() => {
@@ -44,19 +54,28 @@ const AllCars = (props) => {
             url = `https://sheltered-wildwood-76810.herokuapp.com/carCount`;
         }
 
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                const count = data.count;
-                const pages = Math.ceil(count / 10);
-                setPageCount(pages);
-                setLoading(false);
+        if (url) {
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             })
-            .catch(err => {
-                console.error(err);
-                setLoading(false);
-            })
-    }, [uid]);
+                .then(res => {
+                    if (res.status === 401 || res.status === 403) {
+                        navigate('/login');
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    const count = data.count;
+                    const pages = Math.ceil(count / 10);
+                    setPageCount(pages);
+                    setLoading(false);
+                })
+        }
+    }, [uid, navigate]);
 
     // Handle Delete
     const handleDelete = (id) => {

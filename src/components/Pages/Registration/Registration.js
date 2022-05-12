@@ -18,8 +18,25 @@ const Registration = () => {
         if (user) {
             toast.success('Account Created! Verify Email Address!', {
                 duration: 3000
+            });
+
+            const uid = user?.user?.uid;
+
+            // Get Access Token
+            fetch('https://sheltered-wildwood-76810.herokuapp.com/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ uid: uid })
             })
-            navigate(from, { replace: true });
+                .then(res => res.json())
+                .then(data => {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate(from, { replace: true });
+                })
+                .catch(err => console.error(err))
+
         } else if (error) {
             if (error.message.includes('already')) {
                 toast.error('Email Aready Exist!', {
